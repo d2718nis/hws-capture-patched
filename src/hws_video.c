@@ -319,7 +319,7 @@ static int hws_vidioc_enum_fmt_vid_cap(struct file *file, void *priv_fh,struct v
 		    //printk("%s..pixfmt=%d.\n",__func__,f->index);
 		    f->index = index;
 		    f->type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
-		    strlcpy(f->description, pixfmt->name, sizeof(f->description));
+		    snprintf(f->description, sizeof(f->description), "%s", pixfmt->name);
 		    f->pixelformat=pixfmt->fourcc;
 		}
 	}
